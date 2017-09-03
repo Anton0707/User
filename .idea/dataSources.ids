@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - user@localhost" uuid="e3b479ea-4796-4523-a07a-28b8f80eee28">
+    <database-info product="MySQL" version="5.7.16" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="user"/>
+      <table id="2" parent="1" name="USER"/>
+      <table id="3" parent="1" name="ITEM"/>
+      <table id="4" parent="1" name="ORDER"/>
+      <table id="5" parent="1" name="ORDER_TO_ITEM"/>
+      <column id="6" parent="2" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="7" parent="2" name="LAST_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="8" parent="2" name="FIRST_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="9" parent="2" name="PASSWORD">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="10" parent="2" name="LOGIN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="11" parent="2" name="ROLE">
+        <mandatory>1</mandatory>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="12" parent="2" name="EMAIL">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="13" parent="2" name="DATE_OF_BIRTH">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <key id="14" parent="2" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="15" parent="3" name="ITEM_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="16" parent="3" name="BRAND">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="17" parent="3" name="MODEL">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="18" parent="3" name="PRICE">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <key id="19" parent="3" name="PRIMARY">
+        <columns>ITEM_ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="20" parent="4" name="ORDER_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="21" parent="4" name="DATE">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="22" parent="4" name="USER_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <index id="23" parent="4" name="ORDER_USER_ID_fk">
+        <columns>USER_ID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="24" parent="4" name="PRIMARY">
+        <columns>ORDER_ID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="25" parent="4" name="ORDER_USER_ID_fk">
+        <columns>USER_ID</columns>
+        <ref-key>~.USER.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="26" parent="5" name="ORDER_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="27" parent="5" name="ITEM_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <index id="28" parent="5" name="ORDER_TO_ITEM_ITEM_ITEM_ID_fk">
+        <columns>ITEM_ID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="29" parent="5" name="ORDER_TO_ITEM_ORDER_ORDER_ID_fk">
+        <columns>ORDER_ID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <foreign-key id="30" parent="5" name="ORDER_TO_ITEM_ITEM_ITEM_ID_fk">
+        <columns>ITEM_ID</columns>
+        <ref-key>~.ITEM.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="31" parent="5" name="ORDER_TO_ITEM_ORDER_ORDER_ID_fk">
+        <columns>ORDER_ID</columns>
+        <ref-key>~.ORDER.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+</component>
